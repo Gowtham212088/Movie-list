@@ -1,38 +1,323 @@
+body{
+  background-image: url("./back.jpg");
+
+}
+
+
 .App {
-  text-align: center;
+  padding: 0;
+  margin: 0;
+  
+  /* object-fit: fill; */
+  background-size: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.anime-text {
+  background-color: #222;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.movie-list {
+  font-family: sans-serif;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.movie-name {
+  margin-bottom: 0px;
+  font-size: 24px;
+  font-family: fantasy;
+  font-style: italic;
+}
+
+.movie-name,
+.movie-rating {
+  color: rgb(200, 198, 198);
+  margin-top: 8px;
+}
+
+button {
+  position: relative;
+  border: none;
+  transition: 0.4s ease-in;
+  z-index: 1;
+  margin-bottom: 50px;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+button::before,
+button::after {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  text-decoration: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.submit-butt {
+  width: 350px;
+  height: 40px;
+  position: relative;
+  font-weight: 800;
+  left: 35%;
+  border-radius: 25px;
+  background: #9b9b9b;
+}
+
+.submit-butt:hover {
+  font-size: larger;
+
+  height: 50px;
+  border-radius: 30px;
+
+  transition-duration: 0.6s;
+
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    #e6075d,
+    rgb(0, 255, 179),
+    rgb(43, 199, 43),
+    rgb(0, 217, 255),
+    #00ffff
+  );
+  box-shadow: linear-gradient(
+    to right,
+    #ff0062,
+    rgb(0, 255, 179),
+    rgb(200, 200, 200),
+    rgb(0, 217, 255),
+    #00ffff
+  );
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 500px) {
+  .submit-butt {
+    width: 190px;
+    position: relative;
+    left: 30%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media only screen and (max-width: 500px) and (min-width: 250px) {
+  .submit-butt {
+    width: 190px;
+    position: relative;
+    left: 30%;
   }
+}
+
+.movie-poster {
+  /* movie-poster WIDTH, HEIGHT & OTHER PROPERTIES */
+  height: 500px;
+  width: 340px;
+  border: 4p white;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+
+  margin: 15px;
+  object-fit: cover;
+  border-radius: 215px;
+  overflow: hidden;
+  background-color: #1c1b29;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  50% {
+    transform: rotate(-0deg);
+  }
+}
+
+.movie-poster:before {
+  /* BEFORE FOR movie-poster */
+
+  content: "";
+  background-color: conic-gradient(#04b0ee 20deg, transparent 120deg);
+  height: 150%;
+  width: 150%;
+  position: absolute;
+  left: -25%;
+  top: -25%;
+}
+
+.movie-poster::after {
+  /* AFTER FOR movie-poster */
+
+  content: "";
+  height: 94%;
+  width: 94%;
+  position: absolute;
+  background-color: #1c1b29;
+  border: 5px;
+  top: 3%;
+  left: 3%;
+  color: #04b0ee;
+  display: flex;
+  justify-content: space-around;
+  place-items: center;
+  font-size: 20px;
+}
+
+.movie-poster:hover {
+  /* HOVER FOR .movie-poster */
+  color: white;
+  border: 5px solid goldenrod;
+  cursor: pointer;
+  /* height: 550px;
+  width: 370px; */
+  transition: 0.2s;
+  transform: scale(1.03);
+}
+
+
+.movie-rating {
+  font-size: 18px;
+  font-family: fantasy;
+  color: rgb(173, 162, 162);
+}
+
+.movie-summary {
+  color: rgb(255, 255, 255);
+  margin-top: 0px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.movie-specs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-container {
+  width: 340px;
+}
+
+.entire-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_group {
+  display: flex;
+
+  position: relative;
+  left: 20%;
+  padding: 15px 0 0;
+  margin-top: 0px;
+  width: 50%;
+}
+
+.form_field {
+  font-family: poppins;
+  width: 1200px;
+  border: 0;
+  border-bottom: 5px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 15px 0;
+  background-color: transparent;
+  transition: border-color 0.2s;
+}
+
+.form_field::placeholder {
+  color: transparent;
+}
+
+.form_label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 20px;
+  color: #9b9b9b;
+}
+
+.form_field:focus {
+  padding-bottom: 6px;
+  font-weight: 900;
+  border-width: 7px;
+  border-image: linear-gradient(
+    to right,
+    #e6075d,
+    rgb(0, 255, 179),
+    rgb(43, 199, 43),
+    rgb(0, 217, 255),
+    #00ffff
+  );
+  border-image-slice: 1;
+}
+
+.form_field:focus ~ .form_label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 21px;
+  color: #2afadf;
+  font-weight: 700;
+}
+.thumb-like {
+  position: relative;
+  bottom: 5px;
+  font-size: medium;
+}
+.thumb-like:hover {
+  font-size: larger;
+}
+
+.thumb-dislike {
+  position: relative;
+  bottom: 5px;
+
+  font-size: medium;
+}
+
+.like-butt {
+  width: 75px;
+  height: 50px;
+  margin: 10px;
+  border: 5px solid rgb(6, 189, 0);
+  border-radius: 25px;
+  background: transparent;
+}
+
+.like-butt:hover {
+  cursor: pointer;
+  background: rgb(6, 189, 0);
+  box-shadow: linear-gradient(
+    to right,
+    #ff0062,
+    rgb(0, 255, 179),
+    rgb(200, 200, 200),
+    rgb(0, 217, 255),
+    #00ffff
+  );
+  border: none;
+}
+
+.dislike-butt {
+  width: 75px;
+  height: 50px;
+  margin: 5px;
+  border: 5px solid rgb(255, 0, 0);
+  border-radius: 25px;
+  background: transparent;
+}
+
+.dislike-butt:hover {
+  cursor: pointer;
+  background: rgb(255, 0, 0);
+  box-shadow: linear-gradient(
+    to right,
+    #ff0062,
+    rgb(0, 255, 179),
+    rgb(200, 200, 200),
+    rgb(0, 217, 255),
+    #00ffff
+  );
+  border: none;
 }
